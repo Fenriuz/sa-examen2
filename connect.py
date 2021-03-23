@@ -7,8 +7,8 @@ class Connect :
          self.connectV =None 
          try:
           connection_config_dict = {
-          'user': 'cesar',
-          'password': 'cesar',
+          'user': 'alex',
+          'password': 'password',
           'host': 'localhost',
           'port': '3306',
           'database': 'examen',

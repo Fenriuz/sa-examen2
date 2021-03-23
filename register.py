@@ -3,8 +3,8 @@ from tkinter import ttk
 
 class Register :
      def __init__(self,window,connect) :
-         self.color="light blue"
-         self.font=("Arial", 16,"bold")
+         self.color="light green"
+         self.font=("Arial", 14,"bold")
          self.textUser= StringVar()
          self.textPass= StringVar()
          self.window=window
@@ -14,7 +14,7 @@ class Register :
          self.id=""
          heading = Label(self.window, text="Formulario",bg=self.color,font=self.font) 
          user=Label(self.window, text="Usuario", bg=self.color) 
-         password=Label(self.window, text="Contrasena", bg=self.color)
+         password=Label(self.window, text="Contra", bg=self.color)
          heading.grid(row=0, column=1) 
          user.grid(row=2, column=0) 
          password.grid(row=3, column=0)
@@ -22,14 +22,14 @@ class Register :
          pass_field = Entry(self.window,textvariable=self.textPass) 
          user_field.grid(row=2, column=1, ipadx="100") 
          pass_field.grid(row=3, column=1, ipadx="100")
-         submit = Button(self.window, text="registrarse", fg="Black", bg="Green",foreground="White",command=lambda:connect.insertUser(self.textUser.get(),self.textPass.get(),self.table)) 
+         submit = Button(self.window, text="registro", fg="Black", bg="Green",foreground="White",command=lambda:connect.insertUser(self.textUser.get(),self.textPass.get(),self.table)) 
          submit.place(x=10,y=100)
          close= Button(self.window, text="salir", fg="Black", bg="Red",foreground="White") 
          close.place(x=110,y=100)
          Detail_Frame=Frame(self.window)
          update= Button(self.window, text="actualizar", fg="Black", bg="Red",foreground="White",command=lambda:connect.updateUser(self.textUser.get(),self.textPass.get(),self.id,self.table)) 
          update.place(x=170,y=100)
-         delete= Button(self.window, text="Eliminar", fg="Black", bg="Red",foreground="White",command=lambda:connect.deleteUser(self.id,self.table)) 
+         delete= Button(self.window, text="eliminar", fg="Black", bg="Red",foreground="White",command=lambda:connect.deleteUser(self.id,self.table)) 
          delete.place(x=260,y=100)
          Detail_Frame.place(x=0,y=130,width=500,height=300)
          Table_Frame=Frame(Detail_Frame,bd=2,relief=RIDGE, bg="crimson")
