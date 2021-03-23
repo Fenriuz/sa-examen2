@@ -11,7 +11,7 @@ class Connect :
           'password': 'password',
           'host': 'localhost',
           'port': '3306',
-          'database': 'examen',
+          'database': 'examensa',
           }
           self.connectV = mysql.connector.connect(**connection_config_dict)
          except:
