@@ -56,4 +56,4 @@ class Register :
          row=contents['values']
          self.textUser.set(row[0])
          self.textPass.set(row[1])
-         self.id=row[3]
+         self.id=row[2]
