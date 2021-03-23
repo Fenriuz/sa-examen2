@@ -20,25 +20,25 @@ class Connect :
      def getConnect(self):
          return self.connectV
 
-     def insertUser(self,name,username,password,table):
-         if name=="" or username=="" or password=="" :
+     def insertUser(self,username,password,table):
+         if username=="" or password=="" :
             messagebox.showerror("Error", "Campos Vacios!")
          else:
             cursor =self.connectV.cursor()
-            mySql_insert_query = """INSERT INTO user(name, username, password) 
-                           VALUES (%s,%s,%s);"""
-            cursor.execute(mySql_insert_query,(name,username,password))
+            mySql_insert_query = """INSERT INTO user(username, password) 
+                           VALUES (%s,%s);"""
+            cursor.execute(mySql_insert_query,(username,password))
             self.connectV.commit()
             self.fetch_data(table)
             messagebox.showerror("Exito!", "Registro Ingresado!")
 
-     def updateUser(self,name,username,password,id,table):
-         if name=="" or username=="" or password=="" :
+     def updateUser(self,username,password,id,table):
+         if username=="" or password=="" :
             messagebox.showerror("Error", "Campos Vacios!")
          else:
            cursor = self.connectV.cursor()
-           mySql_insert_query = """UPDATE `user` SET name=%s,username=%s,password=%s WHERE id=%s"""
-           record = (name, username, password,id)
+           mySql_insert_query = """UPDATE `user` SET username=%s,password=%s WHERE id=%s"""
+           record = (username, password,id)
            cursor.execute(mySql_insert_query, record)
            self.connectV.commit()
            self.fetch_data(table)
@@ -54,7 +54,7 @@ class Connect :
 
      def fetch_data(self,tabla):
         cursor = self.connectV.cursor()
-        cursor.execute("select name,username,password,id from user")
+        cursor.execute("select username,password,id from user")
         tabla.delete(*tabla.get_children()) 
         rows=cursor.fetchall()
         if len(rows)!=-1:
